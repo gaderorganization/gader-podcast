@@ -36,6 +36,6 @@
     <record id="action_ad_banner" model="ir.actions.act_window">
         <field name="name">Ad Banners</field>
         <field name="res_model">gader_podcast.ad_banner</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

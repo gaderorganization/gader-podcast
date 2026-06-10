@@ -1,31 +1,4 @@
 services:
-  db:
-    image: postgres:15
-    environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD=odoo
-      - POSTGRES_USER=odoo
-    volumes:
-      - odoo-db-data:/var/lib/postgresql/data
-    networks:
-      - podcast-network
-
-  odoo:
-    image: odoo:18.0
-    depends_on:
-      - db
-    ports:
-      - "8069:8069"
-    environment:
-      - HOST=db
-      - USER=odoo
-      - PASSWORD=odoo
-    volumes:
-      - odoo-web-data:/var/lib/odoo
-      - ./odoo-addon:/mnt/extra-addons
-    networks:
-      - podcast-network
-
   frontend:
     build:
       context: ./frontend
@@ -33,15 +6,11 @@ services:
     ports:
       - "3050:3000"
     environment:
-      - ODOO_URL=http://odoo:8069
-    depends_on:
-      - odoo
+      # You can override this in Easypanel Environment Variables
+      # to point to your existing Odoo instance.
+      - ODOO_URL=${ODOO_URL:-http://odoo-web:8069}
     networks:
       - podcast-network
-
-volumes:
-  odoo-db-data:
-  odoo-web-data:
 
 networks:
   podcast-network:

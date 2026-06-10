@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Top Level Menu -->
+    <menuitem id="menu_podcast_root" name="Podcasts" sequence="10"/>
+
+    <!-- App Menus -->
+    <menuitem id="menu_podcast_episodes" name="Episodes" parent="menu_podcast_root" action="action_podcast_episode" sequence="10"/>
+    <menuitem id="menu_podcast_categories" name="Categories" parent="menu_podcast_root" action="action_podcast_category" sequence="20"/>
+    <menuitem id="menu_podcast_banners" name="Ad Banners" parent="menu_podcast_root" action="action_ad_banner" sequence="30"/>
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gader_podcast_category_public,gader_podcast.category.public,model_gader_podcast_category,,1,0,0,0
+access_gader_podcast_category_user,gader_podcast.category.user,model_gader_podcast_category,base.group_user,1,1,1,1
+access_gader_podcast_episode_public,gader_podcast.episode.public,model_gader_podcast_episode,,1,0,0,0
+access_gader_podcast_episode_user,gader_podcast.episode.user,model_gader_podcast_episode,base.group_user,1,1,1,1
+access_gader_podcast_ad_banner_public,gader_podcast.ad_banner.public,model_gader_podcast_ad_banner,,1,0,0,0
+access_gader_podcast_ad_banner_user,gader_podcast.ad_banner.user,model_gader_podcast_ad_banner,base.group_user,1,1,1,1

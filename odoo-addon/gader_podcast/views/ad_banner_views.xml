@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ad_banner_tree" model="ir.ui.view">
+        <field name="name">gader_podcast.ad_banner.tree</field>
+        <field name="model">gader_podcast.ad_banner</field>
+        <field name="arch" type="xml">
+            <tree string="Ad Banners">
+                <field name="name"/>
+                <field name="target_url"/>
+                <field name="is_active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ad_banner_form" model="ir.ui.view">
+        <field name="name">gader_podcast.ad_banner.form</field>
+        <field name="model">gader_podcast.ad_banner</field>
+        <field name="arch" type="xml">
+            <form string="Ad Banner">
+                <sheet>
+                    <field name="banner_image" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Banner Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="target_url"/>
+                        <field name="is_active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ad_banner" model="ir.actions.act_window">
+        <field name="name">Ad Banners</field>
+        <field name="res_model">gader_podcast.ad_banner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

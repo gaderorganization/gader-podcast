@@ -6,8 +6,10 @@ export const dynamic = 'force-dynamic'
 
 async function getCategories() {
   const ODOO_URL = process.env.ODOO_URL || "http://localhost:8069"
+  const ODOO_DB = process.env.ODOO_DB || ""
+  const dbQuery = ODOO_DB ? `?db=${ODOO_DB}` : ""
   try {
-    const res = await fetch(`${ODOO_URL}/api/podcasts/categories`, {
+    const res = await fetch(`${ODOO_URL}/api/podcasts/categories${dbQuery}`, {
       cache: 'no-store'
     })
     const data = await res.json()
@@ -20,8 +22,13 @@ async function getCategories() {
 
 async function getEpisodes(categoryIds: string[]) {
   const ODOO_URL = process.env.ODOO_URL || "http://localhost:8069"
+  const ODOO_DB = process.env.ODOO_DB || ""
   try {
-    const query = categoryIds.length > 0 ? `?category_ids=${categoryIds.join(',')}` : ''
+    const dbParam = ODOO_DB ? `db=${ODOO_DB}` : ""
+    const catParam = categoryIds.length > 0 ? `category_ids=${categoryIds.join(',')}` : ""
+    const params = [dbParam, catParam].filter(Boolean).join('&')
+    const query = params ? `?${params}` : ''
+    
     const res = await fetch(`${ODOO_URL}/api/podcasts/episodes${query}`, {
       cache: 'no-store'
     })
@@ -35,8 +42,10 @@ async function getEpisodes(categoryIds: string[]) {
 
 async function getAdBanner() {
   const ODOO_URL = process.env.ODOO_URL || "http://localhost:8069"
+  const ODOO_DB = process.env.ODOO_DB || ""
+  const dbQuery = ODOO_DB ? `?db=${ODOO_DB}` : ""
   try {
-    const res = await fetch(`${ODOO_URL}/api/podcasts/banner`, {
+    const res = await fetch(`${ODOO_URL}/api/podcasts/banner${dbQuery}`, {
       cache: 'no-store'
     })
     const data = await res.json()

@@ -6,6 +6,7 @@ services:
 
     environment:
       - ODOO_URL=https://gader-odoo-web.trzy2m.easypanel.host
+      - ODOO_DB=gader_live_db_new
     networks:
       - podcast-network
 

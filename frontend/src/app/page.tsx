@@ -2,8 +2,7 @@ import { FilterSystem } from "@/components/FilterSystem"
 import { PodcastGrid } from "@/components/PodcastGrid"
 import { AdBanner } from "@/components/AdBanner"
 
-// ISR: revalidate every 60 seconds
-export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 async function getCategories() {
   const ODOO_URL = process.env.ODOO_URL || "http://localhost:8069"

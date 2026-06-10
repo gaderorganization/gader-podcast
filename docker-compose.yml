@@ -3,8 +3,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    ports:
-      - "3050:3000"
+
     environment:
       # You can override this in Easypanel Environment Variables
       # to point to your existing Odoo instance.

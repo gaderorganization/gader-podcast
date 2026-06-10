@@ -5,9 +5,7 @@ services:
       dockerfile: Dockerfile
 
     environment:
-      # You can override this in Easypanel Environment Variables
-      # to point to your existing Odoo instance.
-      - ODOO_URL=${ODOO_URL:-http://odoo-web:8069}
+      - ODOO_URL=https://gader-odoo-web.trzy2m.easypanel.host
     networks:
       - podcast-network
 

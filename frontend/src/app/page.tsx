@@ -8,9 +8,7 @@ async function getCategories() {
   const ODOO_URL = process.env.ODOO_URL || "http://localhost:8069"
   try {
     const res = await fetch(`${ODOO_URL}/api/podcasts/categories`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ jsonrpc: "2.0", method: "call", params: {} })
+      cache: 'no-store'
     })
     const data = await res.json()
     return data.result || []
@@ -23,16 +21,9 @@ async function getCategories() {
 async function getEpisodes(categoryIds: string[]) {
   const ODOO_URL = process.env.ODOO_URL || "http://localhost:8069"
   try {
-    const res = await fetch(`${ODOO_URL}/api/podcasts/episodes`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ 
-        jsonrpc: "2.0", 
-        method: "call", 
-        params: { 
-          category_ids: categoryIds.length > 0 ? categoryIds.map(Number) : undefined 
-        } 
-      })
+    const query = categoryIds.length > 0 ? `?category_ids=${categoryIds.join(',')}` : ''
+    const res = await fetch(`${ODOO_URL}/api/podcasts/episodes${query}`, {
+      cache: 'no-store'
     })
     const data = await res.json()
     return data.result || []
@@ -46,9 +37,7 @@ async function getAdBanner() {
   const ODOO_URL = process.env.ODOO_URL || "http://localhost:8069"
   try {
     const res = await fetch(`${ODOO_URL}/api/podcasts/banner`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ jsonrpc: "2.0", method: "call", params: {} })
+      cache: 'no-store'
     })
     const data = await res.json()
     return data.result || null

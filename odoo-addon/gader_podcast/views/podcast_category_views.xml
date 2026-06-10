@@ -4,10 +4,10 @@
         <field name="name">gader_podcast.category.tree</field>
         <field name="model">gader_podcast.category</field>
         <field name="arch" type="xml">
-            <tree string="Podcast Categories">
+            <list string="Podcast Categories">
                 <field name="name"/>
                 <field name="color" widget="color"/>
-            </tree>
+            </list>
         </field>
     </record>
 

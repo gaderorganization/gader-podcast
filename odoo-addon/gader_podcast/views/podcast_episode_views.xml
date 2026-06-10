@@ -4,12 +4,12 @@
         <field name="name">gader_podcast.episode.tree</field>
         <field name="model">gader_podcast.episode</field>
         <field name="arch" type="xml">
-            <tree string="Podcast Episodes">
+            <list string="Podcast Episodes">
                 <field name="name"/>
                 <field name="category_id"/>
                 <field name="publish_date"/>
                 <field name="status"/>
-            </tree>
+            </list>
         </field>
     </record>
 

@@ -4,11 +4,11 @@
         <field name="name">gader_podcast.ad_banner.tree</field>
         <field name="model">gader_podcast.ad_banner</field>
         <field name="arch" type="xml">
-            <tree string="Ad Banners">
+            <list string="Ad Banners">
                 <field name="name"/>
                 <field name="target_url"/>
                 <field name="is_active"/>
-            </tree>
+            </list>
         </field>
     </record>
 
